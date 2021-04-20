@@ -20,7 +20,7 @@ export default function Todos({ user }) {
     if (task.length) {
       let { data: todo, error } = await supabase
         .from('todos')
-        .insert({ task, user_id: user.id })
+        .insert({ company_name, user_id: user.id })
         .single()
       if (error) setError(error.message)
       else setTodos([...todos, todo])
