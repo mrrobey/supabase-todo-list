@@ -38,12 +38,12 @@ export default function Todos({ user }) {
 
   return (
     <div className="w-full">
-      <h1 className="mb-12">Todo List.</h1>
+      <h1 className="mb-12">Demutualizations</h1>
       <div className="flex gap-2 my-2">
         <input
           className="rounded w-full p-2"
           type="text"
-          placeholder="make coffee"
+          placeholder="Add demutualization"
           value={newTaskText}
           onChange={(e) => {
             setError('')
