@@ -96,6 +96,7 @@ const Todo = ({ todo, onDelete }) => {
       <div className="flex items-center px-4 py-4 sm:px-6">
         <div className="min-w-0 flex-1 flex items-center">
           <div className="text-sm leading-5 font-medium truncate">{todo.task}</div>
+          <br/>
           <div className="text-sm leading-5 font-medium truncate">{todo.company_name}</div>
         </div>
         <div>
