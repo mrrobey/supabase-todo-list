@@ -25,6 +25,16 @@ export default function Todos({ user }) {
       if (error) setError(error.message)
       else setTodos([...todos, todo])
     }
+    const addTodo = async (tickerText) => {
+      let ticker_symbol = tickerText.trim()
+      if (ticker_symbol.length) {
+        let { data: todo, error } = await supabase
+          .from('todos')
+          .insert({ ticker_symbol })
+          .single()
+        if (error) setError(error.message)
+        else setTodos([...todos, todo])
+      }
   }
 
   const deleteTodo = async (id) => {
@@ -50,7 +60,18 @@ export default function Todos({ user }) {
             setNewTaskText(e.target.value)
           }}
         />
-        <button className="btn-black" onClick={() => addTodo(newTaskText)}>
+        <div className="flex gap-2 my-2">
+        <input
+          className="rounded w-full p-2"
+          type="text"
+          placeholder="Add Ticker Symbol (if known)"
+          value={newtickerText}
+          onChange={(e) => {
+            setError('')
+            setNewTaskText(e.target.value)
+          }}
+        />
+        <button className="btn-black" onClick={() => addTodo(newTaskText, newtickerText)}>
           Add
         </button>
       </div>
